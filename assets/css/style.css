@@ -1,0 +1,12 @@
+#wrapper {
+    padding: 10px;
+}
+
+.card-header {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card {
+    margin-bottom: 10px;
+}
