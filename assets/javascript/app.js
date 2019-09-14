@@ -68,12 +68,15 @@ function kiwi(from, to) {
       dateFromConverted +
       "&dateTo=" +
       dateToConverted +
-      "&limit=5&currency=AUD&partner=picky",
+      "&limit=5&curr=AUD&max_stopovers=1&sort=price&partner=picky",
 
     method: "GET"
   }).then(function(response) {
-    console.log(response.data);
-    console.log(response.data[0].airlines);
+    console.log(response.data[4]);
+    response.data[4].route.forEach(function(item) {
+      var airlineCode = item.airline;
+      codeIataAirline(airlineCode);
+    });
   });
 }
 //http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=ams
@@ -99,13 +102,11 @@ function kiwi(from, to) {
 function codeIataAirline(code) {
   $.ajax({
     url:
-      "https://aviation-edge.com/v2/public/airlineDatabase?key=234b97-f4a134&codeIataAirline=" +
+      "https://aviation-edge.com/v2/public/airlineDatabase?key=234b97-f4a134&connections=2&codeIataAirline=" +
       code,
     method: "GET"
   }).then(function(response) {
     var data = JSON.parse(response);
-    console.log(data[0].nameAirline);
+    console.log({ [code]: data[0].nameAirline });
   });
 }
-
-codeIataAirline("AR");
