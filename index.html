@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>U-travel</title>
@@ -8,11 +7,20 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-
-
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 </head>
 
-<body>
+						<div class="col-3">
+							<input
+								type="text"
+								class="form-control"
+								placeholder="To"
+								id="to"
+							/>
+						</div>
 
     <div class="jumbotron jumbotron-fluid text-center">
         <div class="container">
@@ -67,7 +75,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="col-lg-3">
                 <div id="activitiesDiv" class="card shadow">
                     <div class="card-header">
@@ -102,5 +109,21 @@
     </div>
 
 </body>
+<script src="assets/javascript/app.js"></script>
 
+					<div class="card shadow">
+						<div class="card-header">
+							Temperature
+						</div>
+						<ul class="list-group list-group-flush">
+							<li id="temperatureDisplayList" class="list-group-item">
+								Temperature 1
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="assets/javascript/app.js"></script>
 </html>
