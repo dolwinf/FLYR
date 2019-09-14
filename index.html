@@ -5,34 +5,15 @@
 		<title>U-travel</title>
 		<!-- <link rel="icon" href=""> -->
 
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://code.jquery.com/jquery-3.4.1.min.js"
-			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			crossorigin="anonymous"
-		></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
-		<link rel="stylesheet" href="assets/css/style.css" />
-	</head>
-
-	<body>
-		<div class="jumbotron jumbotron-fluid text-center">
-			<div class="container">
-				<form id="searchBar">
-					<div class="row">
-						<div class="col-3">
-							<input
-								type="text"
-								class="form-control"
-								placeholder="From "
-								id="from"
-							/>
-						</div>
+<head>
+    <meta charset="utf-8">
+    <title>Project 1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
 
 						<div class="col-3">
 							<input
@@ -109,17 +90,19 @@
 					</div>
 				</div>
 
-				<div class="col-lg-3">
-					<div id="exchangeRateCard" class="card shadow">
-						<div class="card-header">
-							Exchange Rate
-						</div>
-						<ul class="list-group list-group-flush">
-							<li id="exchangeRateDisplayList" class="list-group-item">
-								Exchange Rate 1
-							</li>
-						</ul>
-					</div>
+            <div class="col-2">
+                <input type="date" class="form-control" id="end" name="trip-start" />
+            </div>
+
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+        </div>
+        </div>
+    </form>
+
+</body>
+<script src="assets/javascript/app.js"></script>
 
 					<div class="card shadow">
 						<div class="card-header">
