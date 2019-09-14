@@ -68,11 +68,12 @@ function kiwi(from, to) {
       dateFromConverted +
       "&dateTo=" +
       dateToConverted +
-      "&limit=5&partner=picky",
+      "&limit=5&currency=AUD&partner=picky",
 
     method: "GET"
   }).then(function(response) {
-    console.log(response);
+    console.log(response.data);
+    console.log(response.data[0].airlines);
   });
 }
 //http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=ams
@@ -91,3 +92,20 @@ function kiwi(from, to) {
 //currency
 
 // https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=18/11/2019&dateTo=12/12/2019&sort=price&limit=5&partner=picky
+
+//Flight IATA code to Flight name
+//https://aviation-edge.com/v2/public/airlineDatabase?key=234b97-f4a134&codeIataAirline=AR
+
+function codeIataAirline(code) {
+  $.ajax({
+    url:
+      "https://aviation-edge.com/v2/public/airlineDatabase?key=234b97-f4a134&codeIataAirline=" +
+      code,
+    method: "GET"
+  }).then(function(response) {
+    var data = JSON.parse(response);
+    console.log(data[0].nameAirline);
+  });
+}
+
+codeIataAirline("AR");
