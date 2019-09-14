@@ -1,46 +1,139 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>U-travel</title>
+		<!-- <link rel="icon" href=""> -->
 
-<head>
-    <meta charset="utf-8">
-    <title>Project 1</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-</head>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
 
-<body>
+	<body>
+		<div class="jumbotron jumbotron-fluid text-center">
+			<div class="container">
+				<form id="searchBar">
+					<div class="row">
+						<div class="col-3">
+							<input
+								type="text"
+								class="form-control"
+								placeholder="From "
+								id="from"
+							/>
+						</div>
 
+						<div class="col-3">
+							<input
+								type="text"
+								class="form-control"
+								placeholder="To"
+								id="to"
+							/>
+						</div>
 
+						<div class="col-2">
+							<input
+								type="date"
+								id="start"
+								class="form-control"
+								name="trip-start"
+								min="2019-09-12"
+							/>
+						</div>
 
-    <form>
-        <div class="row">
+						<div class="col-2">
+							<input
+								type="date"
+								class="form-control"
+								id="end"
+								name="trip-end"
+							/>
+						</div>
 
-            <div class="col-2">
-                <input type="text" class="form-control" placeholder="From ">
-            </div>
+						<div class="col-2">
+							<button type="submit" class="btn btn-primary mb-2">Search</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 
-            <div class="col-2">
-                <input type="text" class="form-control" placeholder="To">
-            </div>
+		<div id="wrapper" class="container-fluid">
+			<div class="row w-90">
+				<div class="col-lg-3">
+					<div id="flightsDiv" class="card shadow">
+						<div class="card-header">
+							Flights
+						</div>
+						<ul class="list-group list-group-flush">
+							<li id="flightDisplayList" class="list-group-item">Flight 1</li>
+						</ul>
+					</div>
+				</div>
 
-            <div class="col-2">
-                <input type="date" id="start" class="form-control" name="trip-start" min="2019-09-12" />
-            </div>
+				<div class="col-lg-3">
+					<div id="accommodationDiv" class="card shadow">
+						<div class="card-header">
+							Accommodation
+						</div>
+						<ul class="list-group list-group-flush">
+							<li id="accommodationDisplayList" class="list-group-item">
+								Accommodation 1
+							</li>
+						</ul>
+					</div>
+				</div>
 
-            <div class="col-2">
-                <input type="date" class="form-control" id="end" name="trip-start" />
-            </div>
+				<div class="col-lg-3">
+					<div id="activitiesDiv" class="card shadow">
+						<div class="card-header">
+							Activities
+						</div>
+						<ul class="list-group list-group-flush">
+							<li id="activitiesDisplayList" class="list-group-item">
+								Activity 1
+							</li>
+						</ul>
+					</div>
+				</div>
 
-            <div class="col-2">
-                <button type="submit" class="btn btn-primary mb-2">Submit</button>
-            </div>
-        </div>
-        </div>
-    </form>
+				<div class="col-lg-3">
+					<div id="exchangeRateCard" class="card shadow">
+						<div class="card-header">
+							Exchange Rate
+						</div>
+						<ul class="list-group list-group-flush">
+							<li id="exchangeRateDisplayList" class="list-group-item">
+								Exchange Rate 1
+							</li>
+						</ul>
+					</div>
 
-</body>
-<script src="assets/javascript/app.js"></script>
-
+					<div class="card shadow">
+						<div class="card-header">
+							Temperature
+						</div>
+						<ul class="list-group list-group-flush">
+							<li id="temperatureDisplayList" class="list-group-item">
+								Temperature 1
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="assets/javascript/app.js"></script>
 </html>
