@@ -1,5 +1,63 @@
+#jumbotron {
+    background-color: #00B1FF;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+#logo {
+    height: 100px;
+}
+
+#search {
+    background-color: #0040c3;
+}
+
+#temperatureModal {
+    width: 100px;
+}
+
+#currencyModal {
+    width: 100px;
+}
+
+#flightIcon {
+    width: 50px;
+}
+
+#activitiesIcon {
+    width: 50px;
+}
+
 #wrapper {
     padding: 10px;
+    color: white
+}
+
+#from::placeholder {
+    text-transform: uppercase;
+}
+
+#to::placeholder {
+    text-transform: uppercase;
+}
+
+#start::placeholder {
+    text-transform: uppercase;
+}
+
+#end::placeholder {
+    text-transform: uppercase;
+}
+
+#search::placeholder {
+    text-transform: uppercase;
+}
+
+.card {
+    margin-bottom: 10px;
 }
 
 .card-header {
@@ -7,8 +65,31 @@
     text-transform: uppercase;
 }
 
-.card {
-    margin-bottom: 10px;
+.list-group-item {
+    color: black;
+    text-align: left;
+    height: 100px;
+    text-transform: lowercase;
+}
+
+#flightsDiv {
+    background-color: #0040c3;
+}
+
+#accommodationDiv {
+    background-color: #0040c3;
+}
+
+#activitiesDiv {
+    background-color: #0040c3;
+}
+
+#exchangeRateCard {
+    background-color: #0040c3;
+}
+
+#temperatureCard {
+    background-color: #0040c3;
 }
 
 
