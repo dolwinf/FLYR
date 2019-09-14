@@ -8,72 +8,72 @@ var dateFromConverted;
 var dateToConverted;
 
 $("button").on("click", function(e) {
-	e.preventDefault();
-	from = $("#from").val();
-	to = $("#to").val();
-	dateFrom = $("#start").val();
-	dateTo = $("#end").val();
-	dateFromConverted = moment(dateFrom).format("DD/MM/YYYY");
-	dateToConverted = moment(dateTo).format("DD/MM/YYYY");
+  e.preventDefault();
+  from = $("#from").val();
+  to = $("#to").val();
+  dateFrom = $("#start").val();
+  dateTo = $("#end").val();
+  dateFromConverted = moment(dateFrom).format("DD/MM/YYYY");
+  dateToConverted = moment(dateTo).format("DD/MM/YYYY");
 
-	travelFrom(from);
-	travelTo(to);
+  travelFrom(from);
 });
 
 function travelFrom(code) {
-	var settings = {
-		url:
-			"http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
-			code,
-		method: "GET"
-	};
+  var settings = {
+    url:
+      "http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
+      code,
+    method: "GET"
+  };
 
-	$.ajax(settings).then(function(response) {
-		var fromValue = JSON.parse(response);
-		from = fromValue.cities[0].codeIataCity;
-		console.log(from);
-	});
+  $.ajax(settings).then(function(response) {
+    var fromValue = JSON.parse(response);
+    from = fromValue.cities[0].codeIataCity;
+    console.log(from);
+    travelTo(to);
+  });
 }
 
 function travelTo(code) {
-	var settings = {
-		url:
-			"http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
-			code,
-		method: "GET"
-	};
+  var settings = {
+    url:
+      "http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
+      code,
+    method: "GET"
+  };
 
-	$.ajax(settings).then(function(response) {
-		toValue = JSON.parse(response);
-		to = toValue.cities[0].codeIataCity;
-		console.log(to);
-		kiwi(from, to);
+  $.ajax(settings).then(function(response) {
+    toValue = JSON.parse(response);
+    to = toValue.cities[0].codeIataCity;
+    console.log(to);
+    kiwi(from, to);
 
-		//clear form values after submission
-		$("#from").val("");
-		$("#to").val("");
-		$("#start").val("");
-		$("#end").val("");
-	});
+    //clear form values after submission
+    $("#from").val("");
+    $("#to").val("");
+    $("#start").val("");
+    $("#end").val("");
+  });
 }
 
 function kiwi(from, to) {
-	$.ajax({
-		url:
-			"https://api.skypicker.com/flights?flyFrom=" +
-			from +
-			"&to=" +
-			to +
-			"&dateFrom=" +
-			dateFromConverted +
-			"&dateTo=" +
-			dateToConverted +
-			"&limit=5&partner=picky",
+  $.ajax({
+    url:
+      "https://api.skypicker.com/flights?flyFrom=" +
+      from +
+      "&to=" +
+      to +
+      "&dateFrom=" +
+      dateFromConverted +
+      "&dateTo=" +
+      dateToConverted +
+      "&limit=5&partner=picky",
 
-		method: "GET"
-	}).then(function(response) {
-		console.log(response);
-	});
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+  });
 }
 //http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=ams
 
