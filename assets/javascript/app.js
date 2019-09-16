@@ -12,6 +12,7 @@ $("button").on("click", function(e) {
 	from = $("#from").val();
 	to = $("#to").val();
 	weather(to);
+	currentNews(to);
 	currencyExchange(from, to);
 	dateFrom = $("#start").val();
 	dateTo = $("#end").val();
@@ -149,5 +150,27 @@ function currencyExchange(source, destination) {
 		$(".currency").html(
 			"GBP " + response.rates.GBP + " is USD " + response.rates.USD
 		);
+	});
+}
+
+function currentNews(place) {
+	var settings = {
+		async: true,
+		crossDomain: true,
+		url:
+			"https://microsoft-azure-bing-news-search-v1.p.rapidapi.com/search?&count=5&q=" +
+			place,
+		method: "GET",
+		headers: {
+			"x-rapidapi-host": "microsoft-azure-bing-news-search-v1.p.rapidapi.com",
+			"x-rapidapi-key": "e45b480c59msh9749a20cfe00060p123db4jsna04589ddba47"
+		}
+	};
+
+	$.ajax(settings).done(function(response) {
+		response.value.forEach(function(item) {
+			console.log(item.name);
+			console.log(item.url);
+		});
 	});
 }
