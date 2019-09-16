@@ -18,6 +18,7 @@ $("button").on("click", function(e) {
 	weather(to);
 	currentNews(to);
 	currencyExchange(from, to);
+	placeOfInterest(to);
 	dateFrom = $("#start").val();
 	dateTo = $("#end").val();
 	dateFromConverted = moment(dateFrom).format("DD/MM/YYYY");
@@ -100,7 +101,6 @@ function codeIataAirline(code) {
 		var data = JSON.parse(response);
 		console.log({ [code]: data[0].nameAirline });
 	});
-	placeOfInterest(to);
 }
 
 function placeOfInterest(place) {
