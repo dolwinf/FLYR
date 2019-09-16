@@ -1,5 +1,9 @@
 //Aviation Edge api
 //234b97-f4a134
+
+//Google maps platform api
+// AIzaSyDFnMLHhIPMyVaVj-tWEU4H15JCryMYtos
+
 var from;
 var to;
 var dateFrom;
@@ -76,7 +80,9 @@ function kiwi(from, to) {
 
 		method: "GET"
 	}).then(function(response) {
+		console.log(response);
 		console.log(response.data[4]);
+
 		response.data[4].route.forEach(function(item) {
 			var airlineCode = item.airline;
 			codeIataAirline(airlineCode);
