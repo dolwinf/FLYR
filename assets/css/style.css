@@ -24,6 +24,14 @@ body {
   margin-right: 2px;
 }
 
+#from,
+#to,
+#start,
+#end {
+  width: auto;
+  margin-right: 2px;
+}
+
 #search:hover {
   background-color: #002f90;
 }
