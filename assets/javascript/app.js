@@ -20,9 +20,9 @@ $("button").on("click", function(e) {
   e.preventDefault();
   from = $("#from").val();
   to = $("#to").val();
-  weather(to);
+  //   weather(to);
   currentNews(to);
-  currencyExchange(from, to);
+
   placeOfInterest(to);
   destinationActivities.append("<span> in " + to + "</span>");
   destinationCurrentAffairs.append("<span> in " + to + "</span>");
@@ -84,17 +84,37 @@ function kiwi(from, to) {
       dateFromConverted +
       "&dateTo=" +
       dateToConverted +
-      "&limit=5&curr=AUD&max_stopovers=1&sort=price&partner=picky",
+      "&limit=3&curr=AUD&max_stopovers=1&sort=price&partner=picky",
 
     method: "GET"
   }).then(function(response) {
     console.log(response);
-    console.log(response.data[4]);
 
-    response.data[4].route.forEach(function(item) {
-      var airlineCode = item.airline;
-      codeIataAirline(airlineCode);
-    });
+    if (response.data.length == 0) {
+      flight.append("<p>No flights to show</p>");
+    } else {
+      response.data.forEach(function(item) {
+        var flightContainer =
+          "<li id='flightDisplayList' class='list-group-item mb-2'>Flight details";
+
+        if (item.route.length > 0) {
+          item.route.forEach(function(path) {
+            var airlineCode = path.airline;
+            console.log(airlineCode);
+            codeIataAirline(airlineCode);
+            flightContainer +=
+              "<p>" + path.cityFrom + " to " + path.cityTo + "</p>";
+          });
+          flightContainer += "</li>";
+          flight.append(flightContainer);
+        }
+      });
+    }
+
+    // response.data[4].route.forEach(function(item) {
+    //   var airlineCode = item.airline;
+
+    // });
   });
 }
 
@@ -107,6 +127,7 @@ function codeIataAirline(code) {
   }).then(function(response) {
     var data = JSON.parse(response);
     console.log({ [code]: data[0].nameAirline });
+    // console.log({ [code]: data[0].nameAirline });
   });
 }
 
@@ -132,6 +153,7 @@ function placeOfInterest(place) {
 }
 
 function weather(location) {
+  console.log(location);
   var settings = {
     async: true,
     crossDomain: true,
@@ -154,18 +176,6 @@ function weather(location) {
         " is " +
         temperature +
         "&#xb0 C<p>"
-    );
-  });
-}
-
-function currencyExchange(source, destination) {
-  $.ajax({
-    url: "https://api.exchangeratesapi.io/latest?symbols=USD,GBP",
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
-    $(".currency").html(
-      "GBP " + response.rates.GBP + " is USD " + response.rates.USD
     );
   });
 }
@@ -193,8 +203,6 @@ function currentNews(place) {
           item.name +
           "</li>"
       );
-      //   console.log(item.name);
-      //   console.log(item.url);
     });
   });
 }
