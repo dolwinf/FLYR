@@ -5,6 +5,7 @@
 body {
   font-family: "Roboto", sans-serif;
   text-align: center;
+  width: 100%;
 }
 
 #logo {
@@ -15,22 +16,39 @@ body {
   background-color: #0040c3;
 }
 
+#from,
+#to,
+#start,
+#end {
+  width: auto;
+  margin-right: 2px;
+}
+
 #search:hover {
   background-color: #002f90;
 }
 
-#temperatureModal,
-#currencyModal {
-  width: 100px;
+#temperatureModalButton {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 5;
+  background-color: transparent;
+  border: none;
 }
 
-#temperatureModal:hover,
-#currencyModal:hover {
-  width: 102px;
+#newsModalButton {
+  position: fixed;
+  bottom: 0px;
+  right: 50px;
+  z-index: 5;
+  background-color: transparent;
+  border: none;
 }
 
 #flightIcon,
-#activitiesIcon {
+#activitiesIcon,
+#newsIcon {
   width: 50px;
 }
 
@@ -55,6 +73,11 @@ body {
   background-color: #002f90;
   text-align: center;
   text-transform: uppercase;
+  z-index: 2;
+}
+
+.card-body {
+  z-index: 1;
 }
 
 .list-group-item {
@@ -64,40 +87,21 @@ body {
   text-transform: lowercase;
 }
 
-#flightsDiv {
+#flightsDiv,
+#activitiesDiv,
+#newsDiv {
   background-color: #0040c3;
 }
 
-#flightsDivBody {
+#flightsDivBody,
+#activitiesDivBody,
+#newsDivBody {
   overflow: auto;
 }
-
-/* #accommodationDiv {
-    background-color: #0040c3;
-} */
-
-#activitiesDiv {
-  background-color: #0040c3;
-}
-
-#activitiesDivBody {
-  overflow: auto;
-}
-
-/* #exchangeRateCard {
-    background-color: #0040c3;
-}
-
-#temperatureCard {
-    background-color: #0040c3;
-} */
 
 /* media queries */
 
 @media (max-width: 575.98px) {
-  #wrapper {
-    padding: 0px;
-  }
   #flightsDivBody {
     overflow: none;
   }
@@ -111,6 +115,14 @@ body {
   #search {
     width: 100%;
   }
+  #flightsDivHeader {
+    position: sticky;
+    top: 0;
+  }
+  #activitiesDivHeader {
+    position: sticky;
+    top: 0;
+  }
 }
 
 /* @media (min-width: 576px) and (max-width: 767.98px) {} */
@@ -119,6 +131,17 @@ body {
   #searchBar {
     flex-direction: column;
     align-items: stretch;
+  }
+  #wrapper {
+    padding: 0px;
+  }
+  #flightsDivHeader {
+    position: sticky;
+    top: 0;
+  }
+  #activitiesDivHeader {
+    position: sticky;
+    top: 0;
   }
 }
 
