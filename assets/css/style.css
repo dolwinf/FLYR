@@ -16,6 +16,10 @@ body {
   background-color: #0040c3;
 }
 
+.form-inline {
+    display: block;
+}
+
 #from,
 #to,
 #start,
@@ -86,6 +90,7 @@ body {
 
 .card-body {
   z-index: 1;
+  height: 450px;
 }
 
 .list-group-item {
@@ -150,6 +155,10 @@ body {
   #activitiesDivHeader {
     position: sticky;
     top: 0;
+  }
+  .form-inline {
+      display: flex;
+      padding: 25px;
   }
 }
 
