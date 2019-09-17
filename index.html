@@ -16,7 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="assets/javascript/pace-1.0.2/pace.js"></script>
     <link href="assets/javascript/pace-1.0.2/themes/blue/pace-theme-corner-indicator.css" rel="stylesheet" />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -30,32 +30,16 @@
                 </div>
 
                 <div class="col-lg-9">
-
                     <div class="row">
-                        <form id="searchBar" class="col-lg-12">
-                            <div class="form-row">
-
-                                <div class="col-3">
-                                    <input id="from" type="text" class="form-control" placeholder="From ">
-                                </div>
-
-                                <div class="col-3">
-                                    <input id="to" type="text" class="form-control" placeholder="To">
-                                </div>
-
-                                <div class="col-2">
-                                    <input type="date" id="start" class="form-control" style="text-transform: uppercase" name="trip-start" min="2019-09-12" />
-                                </div>
-
-                                <div class="col-2">
-                                    <input type="date" class="form-control" style="text-transform: uppercase" id="end" name="trip-start" />
-                                </div>
-
-                                <div class="col-2">
-                                    <button id="search" type="submit" class="btn btn-primary mb-2" style="text-transform: uppercase">Search</button>
-                                </div>
-                            </div>
-                        </form>
+                        <div class="col-lg-12">
+                            <form class="form-inline" id="searchBar">
+                                <input id="from" type="text" class="form-control" placeholder="From">
+                                <input id="to" type="text" class="form-control" placeholder="To">
+                                <input type="date" id="start" class="form-control" style="text-transform: uppercase" name="trip-start" min="2019-09-12" />
+                                <input type="date" class="form-control" style="text-transform: uppercase" id="end" name="trip-start" />
+                                <button id="search" type="submit" class="btn btn-primary mb-2" style="text-transform: uppercase">Search</button>
+                            </form>
+                        </div>
                     </div>
 
                     <div class="row">
@@ -64,13 +48,8 @@
                             <img src="assets/images/currencyBlack.png" id="currencyModal" data-toggle="modal" data-target="#currencyModalDiv">
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-
-
         </div>
     </div>
 
@@ -82,16 +61,19 @@
                     <div class="card-header">
                         <img id="flightIcon" src="assets/images/flightsWhite.png" alt=""> Flights
                     </div>
-                    <div class="card-body">
+                    <div id="flightsDivBody" class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li id="flightDisplayList" class="list-group-item mb-2">Flight 1</li>
-                            <li id="flightDisplayList" class="list-group-item mb-2">Flight 2</li>
-                            <li id="flightDisplayList" class="list-group-item mb-2">Flight 3</li>
-                            <li id="flightDisplayList" class="list-group-item mb-2">Flight 4</li>
-                            <li id="flightDisplayList" class="list-group-item mb-2">Flight 5</li>
-
+                            <li id="flightDisplayList1" class="list-group-item mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem voluptate repellat nesciunt tempora, obcaecati saepe. Vel, cupiditate reprehenderit. Nobis deleniti voluptas rem suscipit officiis est voluptatum aspernatur
+                                sit modi ducimus!</li>
+                            <li id="flightDisplayList2" class="list-group-item mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt magnam, quidem earum odit iusto obcaecati ipsum eos. Totam esse sed impedit quidem culpa, ad corporis, aspernatur repellendus a, mollitia rem.</li>
+                            <li id="flightDisplayList3" class="list-group-item mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex iusto quia enim libero quasi, voluptatum numquam minima? Ad dicta nesciunt illo consequuntur modi perferendis similique, incidunt delectus aliquid, nulla placeat.</li>
+                            <li id="flightDisplayList4" class="list-group-item mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae adipisci, harum obcaecati soluta provident earum consequatur. Amet ad doloribus dolor, blanditiis provident voluptatum commodi magni fugit nisi. Fugit,
+                                perspiciatis?
+                            </li>
+                            <li id="flightDisplayList5" class="list-group-item mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nostrum nulla consectetur eos praesentium obcaecati esse, eius at deleniti explicabo impedit voluptas commodi officia maiores fugiat voluptatem dolore delectus.
+                                Consequuntur.
+                            </li>
                         </ul>
-
                     </div>
                 </div>
             </div>
@@ -106,18 +88,23 @@
                     </ul>
                 </div>
             </div> -->
+
             <div class="col-lg-6">
                 <div id="activitiesDiv" class="card shadow">
                     <div class="card-header">
                         <img id="activitiesIcon" src="assets/images/activitiesWhite.png" alt=""> Activities
                     </div>
-                    <div class="card-body">
+                    <div id="activitiesDivBody" class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li id="activitiesDisplayList1" class="list-group-item mb-2">Activity 1</li>
-                            <li id="activitiesDisplayList2" class="list-group-item mb-2">Activity 2</li>
-                            <li id="activitiesDisplayList3" class="list-group-item mb-2">Activity 3</li>
-                            <li id="activitiesDisplayList4" class="list-group-item mb-2">Activity 4</li>
-                            <li id="activitiesDisplayList5" class="list-group-item mb-2">Activity 5</li>
+                            <li id="activitiesDisplayList1" class="list-group-item mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eum ab, perspiciatis deserunt provident incidunt error eveniet eos ex accusantium repellendus atque ea delectus distinctio saepe, laudantium maxime suscipit
+                                placeat.
+                            </li>
+                            <li id="activitiesDisplayList2" class="list-group-item mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magni molestiae aspernatur dolores eligendi ullam vitae odit tempora? Itaque commodi expedita similique eum dicta vero placeat, repellendus accusantium optio ipsa?</li>
+                            <li id="activitiesDisplayList3" class="list-group-item mb-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias, odio, recusandae a esse dignissimos ab voluptas incidunt eum quod, voluptatem nisi. Odio quod veniam excepturi voluptate at necessitatibus voluptatibus debitis?</li>
+                            <li id="activitiesDisplayList4" class="list-group-item mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad eligendi iure dolorem totam quisquam ipsum reprehenderit, placeat delectus voluptatibus magni unde expedita consequuntur incidunt, repellat ex qui. Esse, quod ad.</li>
+                            <li id="activitiesDisplayList5" class="list-group-item mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis velit dolores ratione excepturi dolore quis expedita. Laudantium necessitatibus quo, consectetur adipisci neque labore aliquam quia repudiandae quos, totam illum
+                                placeat!
+                            </li>
 
                         </ul>
                     </div>
