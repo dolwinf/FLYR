@@ -8,50 +8,41 @@ body {
 }
 
 #logo {
-    height: 100px;
+    height: 150px;
 }
 
 #search {
     background-color: #0040c3;
 }
 
-#temperatureModal {
-    width: 100px;
+#search:hover {
+    background-color: #002f90;
 }
 
+#temperatureModal,
 #currencyModal {
     width: 100px;
 }
 
-#flightIcon {
-    width: 50px;
+#temperatureModal:hover,
+#currencyModal:hover {
+    width: 102px;
 }
 
+#flightIcon,
 #activitiesIcon {
     width: 50px;
 }
 
 #wrapper {
-    padding: 10px;
+    padding: 20px;
     color: white
 }
 
-#from::placeholder {
-    text-transform: uppercase;
-}
-
-#to::placeholder {
-    text-transform: uppercase;
-}
-
-#start::placeholder {
-    text-transform: uppercase;
-}
-
-#end::placeholder {
-    text-transform: uppercase;
-}
-
+#from::placeholder,
+#to::placeholder,
+#start::placeholder,
+#end::placeholder,
 #search::placeholder {
     text-transform: uppercase;
 }
@@ -61,6 +52,7 @@ body {
 }
 
 .card-header {
+    background-color: #002f90;
     text-align: center;
     text-transform: uppercase;
 }
@@ -68,7 +60,7 @@ body {
 .list-group-item {
     color: black;
     text-align: left;
-    height: 100px;
+    height: auto;
     text-transform: lowercase;
 }
 
@@ -76,23 +68,64 @@ body {
     background-color: #0040c3;
 }
 
-#accommodationDiv {
-    background-color: #0040c3;
+#flightsDivBody {
+    overflow: auto;
 }
+
+
+/* #accommodationDiv {
+    background-color: #0040c3;
+} */
 
 #activitiesDiv {
     background-color: #0040c3;
 }
 
-#exchangeRateCard {
+#activitiesDivBody {
+    overflow: auto;
+}
+
+
+/* #exchangeRateCard {
     background-color: #0040c3;
 }
 
 #temperatureCard {
     background-color: #0040c3;
-}
+} */
 
 
 /* media queries */
 
-@media only screen and (max-width:)
+@media (max-width: 575.98px) {
+    #wrapper {
+        padding: 0px;
+    }
+    #flightsDivBody {
+        overflow: none;
+    }
+    #activitiesDivBody {
+        overflow: none;
+    }
+    #from,
+    #to,
+    #start,
+    #end,
+    #search {
+        width: 100%;
+    }
+}
+
+
+/* @media (min-width: 576px) and (max-width: 767.98px) {} */
+
+@media (max-width: 991.98px) {
+    #searchBar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+@media (min-width: 1200px) {}
