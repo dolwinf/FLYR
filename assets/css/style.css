@@ -79,6 +79,11 @@ body {
 
 .card {
   margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #0040c3;
+  border: solid 3px #002f90;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-header {
@@ -86,6 +91,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   z-index: 2;
+  border-bottom: solid 3px white
 }
 
 .card-body {
@@ -101,15 +107,16 @@ body {
 }
 
 #flightsDiv,
-#activitiesDiv,
-#newsDiv {
-  background-color: #0040c3;
+#activitiesDiv {
 }
 
 #flightsDivBody,
-#activitiesDivBody,
-#newsDivBody {
+#activitiesDivBody {
   overflow: auto;
+}
+
+#footer {
+  background-color: #00b1ff;
 }
 
 /* media queries */
