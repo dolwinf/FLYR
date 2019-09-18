@@ -4,6 +4,24 @@
 //Google maps platform api
 // AIzaSyDFnMLHhIPMyVaVj-tWEU4H15JCryMYtos
 
+var poi = "<div class='col-lg-4'>
+<div id='activitiesDiv' class='card shadow'>
+  <div id='activitiesDivHeader' class='card-header'>
+    <img
+      id='activitiesIcon'
+      src='assets/images/activitiesWhite.png'
+      alt=''
+    />
+    Places of Interest
+  </div>
+  <div id='activitiesDivBody' class='card-body'>
+    <ul class='list-group list-group-flush activity'></ul>
+  </div>
+</div>
+</div>
+</div>
+</div>";
+
 var from;
 var to;
 var dateFrom;
@@ -104,35 +122,37 @@ function kiwi(from, to) {
 						codeIataAirline(airlineCode);
 						arrivalTime = moment.unix(path.aTimeUTC).format("HH:mm");
 						depatureTime = moment.unix(path.dTimeUTC).format("HH:mm");
-						// totalTime = moment.unix(path.duration.departure).format("HH:mm");
-						totalTime = item.duration.departure;
+
+						totalTime = item.fly_duration;
 						fare = item.conversion.AUD;
 
 						flightContainer +=
 							"<p>" +
+							path.cityFrom +
+							"&nbsp; : &nbsp;" +
 							depatureTime +
-							"     " +
-							" " +
-							arrivalTime +
-							" " +
-							" " +
-							" " +
-							totalTime +
-							" " +
-							" " +
-							fare +
-							"</p>";
+							"&nbsp;" +
+							"&nbsp;&nbsp;&nbsp;&nbsp; -> &nbsp;&nbsp;&nbsp;&nbsp;" +
+							"&nbsp;" +
+							path.cityTo +
+							"&nbsp; : &nbsp;" +
+							arrivalTime;
 					});
-					flightContainer += "</li>";
+					flightContainer +=
+						"<br><br> Flight duration: &nbsp;" +
+						totalTime +
+						"&nbsp;" +
+						"&nbsp;" +
+						"AUD &nbsp;" +
+						fare +
+						"&nbsp;<a href='" +
+						item.deep_link +
+						"' style='margin-left: 2%' class='btn btn-primary'>Book Flight </a></p>" +
+						"</li>";
 					flight.append(flightContainer);
 				}
 			});
 		}
-
-		// response.data[4].route.forEach(function(item) {
-		//   var airlineCode = item.airline;
-
-		// });
 	});
 }
 
@@ -145,7 +165,6 @@ function codeIataAirline(code) {
 	}).then(function(response) {
 		var data = JSON.parse(response);
 		console.log(data[0].nameAirline);
-		// $("#flightName").append(data[0].nameAirline);
 	});
 }
 
