@@ -4,23 +4,23 @@
 //Google maps platform api
 // AIzaSyDFnMLHhIPMyVaVj-tWEU4H15JCryMYtos
 
-var poi = "<div class='col-lg-4'>
-<div id='activitiesDiv' class='card shadow'>
-  <div id='activitiesDivHeader' class='card-header'>
-    <img
-      id='activitiesIcon'
-      src='assets/images/activitiesWhite.png'
-      alt=''
-    />
-    Places of Interest
-  </div>
-  <div id='activitiesDivBody' class='card-body'>
-    <ul class='list-group list-group-flush activity'></ul>
-  </div>
-</div>
-</div>
-</div>
-</div>";
+// var poi = "<div class='col-lg-4'>
+// <div id='activitiesDiv' class='card shadow'>
+//   <div id='activitiesDivHeader' class='card-header'>
+//     <img
+//       id='activitiesIcon'
+//       src='assets/images/activitiesWhite.png'
+//       alt=''
+//     />
+//     Places of Interest
+//   </div>
+//   <div id='activitiesDivBody' class='card-body'>
+//     <ul class='list-group list-group-flush activity'></ul>
+//   </div>
+// </div>
+// </div>
+// </div>
+// </div>";
 
 var from;
 var to;
