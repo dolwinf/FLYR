@@ -16,11 +16,11 @@ var news = $(".news");
 var destinationActivities = $(".destinationActivities");
 var destinationCurrentAffairs = $(".destinationCurrentAffairs");
 
-$("button").on("click", function(e) {
+$("#search").on("click", function(e) {
   e.preventDefault();
   from = $("#from").val();
   to = $("#to").val();
-  //   weather(to);
+  weather(to);
   currentNews(to);
 
   placeOfInterest(to);
@@ -136,7 +136,7 @@ function placeOfInterest(place) {
     async: true,
     crossDomain: true,
     url:
-      "https://api.foursquare.com/v2/venues/explore?client_id=2ZDZYBITSRLBTQDUWQZZRTI1M2WSRX12HAMIV41RZ202EJUB&client_secret=5FMLVF5KGOKXIXLLBLY3BWWI5ORKDJ1XQ3TFJOG2I1YHGOJ3&v=20180323&limit=5&near=" +
+      "https://api.foursquare.com/v2/venues/explore?client_id=2ZDZYBITSRLBTQDUWQZZRTI1M2WSRX12HAMIV41RZ202EJUB&client_secret=5FMLVF5KGOKXIXLLBLY3BWWI5ORKDJ1XQ3TFJOG2I1YHGOJ3&v=20180323&limit=10&near=" +
       place,
     method: "GET"
   };
