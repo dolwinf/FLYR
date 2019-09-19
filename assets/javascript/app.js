@@ -11,6 +11,11 @@ var dateTo;
 var dateFromConverted;
 var dateToConverted;
 var airlineCode;
+var clearFlight = $("#actitivitesDivBodyPadding");
+var clearActivities = $("#flightDivBodyPadding");
+var background = $("#backgroundImage");
+var tempModal = $("#temperatureModalButton");
+var newsModal = $("#newsModalButton");
 var main = $(".main");
 var flight = $(".flight");
 var activity = $(".activity");
@@ -20,8 +25,12 @@ var destinationCurrentAffairs = $(".destinationCurrentAffairs");
 
 $("#search").on("click", function(e) {
   e.preventDefault();
+  flight.empty();
+  activity.empty();
   from = $("#from").val();
   to = $("#to").val();
+  tempModal.css("display", "block");
+  newsModal.css("display", "block");
   // weather(to);
   currentNews(to);
 
@@ -39,7 +48,7 @@ $("#search").on("click", function(e) {
 function travelFrom(code) {
   var settings = {
     url:
-      "http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
+      "https://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
       code,
     method: "GET"
   };
@@ -55,7 +64,7 @@ function travelFrom(code) {
 function travelTo(code) {
   var settings = {
     url:
-      "http://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
+      "https://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
       code,
     method: "GET"
   };
@@ -89,52 +98,56 @@ function kiwi(from, to) {
       "&limit=3&curr=AUD&max_stopovers=1&sort=price&partner=picky",
 
     method: "GET"
-  }).then(function(response) {
-    console.log(response);
+  })
+    .then(function(response) {
+      console.log(response);
 
-    if (response.data.length == 0) {
-      flight.append("<p>No flights to show</p>");
-    } else {
-      response.data.forEach(function(item) {
-        var flightContainer =
-          "<li id='flightDisplayList' class='list-group-item mb-2 '>";
+      if (response.data.length == 0) {
+        flight.append("<p>No flights to show</p>");
+      } else {
+        response.data.forEach(function(item) {
+          var flightContainer =
+            "<li id='flightDisplayList' class='list-group-item mb-2 capitalize'>";
 
-        if (item.route.length > 0) {
-          item.route.forEach(function(path) {
-            airlineCode = path.airline;
-            arrivalTime = moment.unix(path.aTimeUTC).format("HH:mm");
-            depatureTime = moment.unix(path.dTimeUTC).format("HH:mm");
+          if (item.route.length > 0) {
+            item.route.forEach(function(path) {
+              airlineCode = path.airline;
+              arrivalTime = moment.unix(path.aTimeUTC).format("HH:mm");
+              depatureTime = moment.unix(path.dTimeUTC).format("HH:mm");
 
-            totalTime = item.fly_duration;
-            fare = item.conversion.AUD;
+              totalTime = item.fly_duration;
+              fare = item.conversion.AUD;
 
+              flightContainer +=
+                "<p>" +
+                path.cityFrom +
+                "&nbsp; : &nbsp;" +
+                depatureTime +
+                "&nbsp;" +
+                "&nbsp;&nbsp;&nbsp;&nbsp; -> &nbsp;&nbsp;&nbsp;&nbsp;" +
+                "&nbsp;" +
+                path.cityTo +
+                "&nbsp; : &nbsp;" +
+                arrivalTime;
+            });
             flightContainer +=
-              "<p>" +
-              path.cityFrom +
-              "&nbsp; : &nbsp;" +
-              depatureTime +
+              "<br><br> Flight duration: &nbsp;" +
+              totalTime +
               "&nbsp;" +
-              "&nbsp;&nbsp;&nbsp;&nbsp; -> &nbsp;&nbsp;&nbsp;&nbsp;" +
               "&nbsp;" +
-              path.cityTo +
-              "&nbsp; : &nbsp;" +
-              arrivalTime;
-          });
-          flightContainer +=
-            "<br><br> Flight duration: &nbsp;" +
-            totalTime +
-            "&nbsp;" +
-            "&nbsp;" +
-            "AUD &nbsp;" +
-            fare +
-            "&nbsp;<a href='" +
-            item.deep_link +
-            "' style='margin-left: 2%' class='btn btn-primary'>Book Flight </a></p>";
-          codeIataAirline(airlineCode, flightContainer);
-        }
-      });
-    }
-  });
+              "AUD &nbsp;" +
+              fare +
+              "&nbsp;<a href='" +
+              item.deep_link +
+              "' style='margin-left: 2%' class='btn btn-primary'>Book Flight </a></p>";
+            codeIataAirline(airlineCode, flightContainer);
+          }
+        });
+      }
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
 }
 
 function codeIataAirline(code, currentFlightContainer) {
@@ -151,6 +164,7 @@ function codeIataAirline(code, currentFlightContainer) {
     $(".flight").append(currentFlightContainer);
 
     main.css("display", "block");
+    background.hide();
   });
 }
 
@@ -168,8 +182,9 @@ function placeOfInterest(place) {
     response.response.groups[0].items.forEach(function(item) {
       activity.append(
         "<li id='activitiesDisplayList1' class='list-group-item mb-2'>" +
+          "<span class='capitalize'>" +
           item.venue.name +
-          "</li>"
+          "</span></li>"
       );
     });
   });
@@ -220,11 +235,12 @@ function currentNews(place) {
   $.ajax(settings).done(function(response) {
     response.value.forEach(function(item) {
       news.append(
-        "<a href='" +
+        "<a  href='" +
           item.url +
           "'<li id='activitiesDisplayList1' class='list-group-item mb-2'>" +
+          "<span class='capitalize'>" +
           item.name +
-          "</li>"
+          "</span></li>"
       );
     });
   });
