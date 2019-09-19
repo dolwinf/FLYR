@@ -1,5 +1,5 @@
 #jumbotron {
-  background-color: #00b1ff;
+  background-color: #ffc92e;
 }
 
 body {
@@ -13,11 +13,11 @@ body {
 }
 
 #search {
-  background-color: #0040c3;
+  background-color: #1000ff;
 }
 
 .form-inline {
-    display: block;
+  display: block;
 }
 
 #from,
@@ -37,7 +37,7 @@ body {
 }
 
 #search:hover {
-  background-color: #002f90;
+  background-color: #0091ff;
 }
 
 #temperatureModalButton {
@@ -77,28 +77,6 @@ body {
   text-transform: uppercase;
 }
 
-.card {
-  margin-bottom: 10px;
-  border-radius: 10px;
-  background-color: #0040c3;
-  border: solid 3px #002f90;
-
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.card-header {
-  background-color: #002f90;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 2;
-  border-bottom: solid 3px white
-}
-
-.card-body {
-  z-index: 1;
-  height: 450px;
-}
-
 .list-group-item {
   color: black;
   text-align: left;
@@ -108,15 +86,38 @@ body {
 
 #flightsDiv,
 #activitiesDiv {
+  margin-bottom: 10px;
 }
+
+#flightsDivHeader,
+#activitiesDivHeader {
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 2;
+  border-bottom: solid 3px white;
+  background-color: #1000ff;
+  overflow: hidden;
+}
+
+#flightDivBodyPadding,
+#actitivitesDivBodyPadding {
+  padding: 20px;
+  background-color: #0091ff;
+}
+
 
 #flightsDivBody,
 #activitiesDivBody {
   overflow: auto;
+  z-index: 1;
+  height: 450px;
+  background-color: #0091ff;
+  width: 100%;
 }
 
 #footer {
-  background-color: #00b1ff;
+  background-color: #1000ff;
+  color: white;
 }
 
 /* media queries */
@@ -164,8 +165,8 @@ body {
     top: 0;
   }
   .form-inline {
-      display: flex;
-      padding: 25px;
+    display: flex;
+    padding: 25px;
   }
 }
 
