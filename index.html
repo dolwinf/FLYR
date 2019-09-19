@@ -1,232 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>U-travel</title>
-    <link rel="icon" href="assets/images/logo.png" />
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap"
-      rel="stylesheet"
-    />
+<head>
+	<meta charset="utf-8" />
+	<title>U-travel</title>
+	<link rel="icon" href="assets/images/logo.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/javascript/pace-1.0.2/pace.js"></script>
-    <link
-      href="assets/javascript/pace-1.0.2/themes/blue/pace-theme-corner-indicator.css"
-      rel="stylesheet"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap" rel="stylesheet" />
 
-  <body>
-    <div id="jumbotron" class="jumbotron-fluid">
-      <div class="row">
-        <div class="col-lg-12 mt-3">
-          <img id="logo" src="assets/images/logo.png" alt="" />
-        </div>
-      </div>
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="assets/javascript/pace-1.0.2/pace.js"></script>
+	<link href="assets/javascript/pace-1.0.2/themes/blue/pace-theme-corner-indicator.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
 
-      <div class="row">
-        <div class="col-lg-12">
-          <form class="form-inline mb-4" id="searchBar">
-            <input
-              id="from"
-              type="text"
-              class="form-control"
-              placeholder="From"
-            />
-            <input id="to" type="text" class="form-control" placeholder="To" />
-            <input
-              type="date"
-              id="start"
-              class="form-control"
-              style="text-transform: uppercase"
-              name="trip-start"
-              min="2019-09-12"
-            />
-            <input
-              type="date"
-              class="form-control"
-              style="text-transform: uppercase"
-              id="end"
-              name="trip-start"
-            />
-            <button
-              id="search"
-              type="submit"
-              class="btn btn-primary"
-              style="text-transform: uppercase"
-            >
-              Search
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
+<body>
+	<div id="jumbotron" class="jumbotron-fluid">
+		<div class="row">
+			<div class="col-lg-12 mt-3">
+				<img id="logo" src="assets/images/logo.png" alt="" />
+			</div>
+		</div>
 
-    <div id="wrapper" class="container-fluid main" style="display:none;">
-      <div class="row">
-        <div class="col-lg-8">
-          <div id="flightsDiv" class="card shadow">
-            <div id="flightsDivHeader" class="card-header">
-              <img
-                id="flightIcon"
-                src="assets/images/flightsWhite.png"
-                alt=""
-              />
-              Flights
-            </div>
-            <div id="flightsDivBody" class="card-body">
-              <ul class="list-group list-group-flush flight">
-                <!-- <li id="flightDisplayList1 flight" class="list-group-item mb-2">
+		<div class="row">
+			<div class="col-lg-12">
+				<form class="form-inline mb-4" id="searchBar">
+					<input id="from" type="text" class="form-control" placeholder="From" />
+					<input id="to" type="text" class="form-control" placeholder="To" />
+					<input type="date" id="start" class="form-control" style="text-transform: uppercase"
+						name="trip-start" min="2019-09-12" />
+					<input type="date" class="form-control" style="text-transform: uppercase" id="end"
+						name="trip-start" />
+					<button id="search" type="submit" class="btn btn-primary" style="text-transform: uppercase">
+						Search
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="wrapper" class="container-fluid">
+		<div class="row">
+			<div class="col-lg-8">
+				<div id="flightsDiv" class="card">
+					<div id="flightsDivHeader" class="card-header">
+						<img id="flightIcon" src="assets/images/flightsWhite.png" alt="" />
+						Flights
+					</div>
+					<div id="flightDivBodyPadding" class="card-body">
+						<div id="flightsDivBody">
+							<ul class="list-group list-group-flush flight">
+								<!-- <li id="flightDisplayList1 flight" class="list-group-item mb-2">
                   Flight 1
                 </li> -->
-              </ul>
-            </div>
-          </div>
-        </div>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <div class="col-lg-4">
-          <div id="activitiesDiv" class="card shadow">
-            <div id="activitiesDivHeader" class="card-header">
-              <img
-                id="activitiesIcon"
-                src="assets/images/activitiesWhite.png"
-                alt=""
-              />
-              Places of Interest
-            </div>
-            <div id="activitiesDivBody" class="card-body">
-              <ul class="list-group list-group-flush activity"></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+			<div class="col-lg-4">
+				<div id="activitiesDiv" class="card">
+					<div id="activitiesDivHeader" class="card-header">
+						<img id="activitiesIcon" src="assets/images/activitiesWhite.png" alt="" />
+						Places of Interest
+					</div>
+					<div id="actitivitesDivBodyPadding" class="card-body">
+						<div id="activitiesDivBody" class="card-body">
+							<ul class="list-group list-group-flush activity"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <!-- Temperature Modal -->
-    <div
-      class="modal fade"
-      id="temperatureModalDiv"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="temperatureModal">Weather</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body temp"></div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-          </div>
-        </div>
-      </div>
-    </div>
+	<!-- Temperature Modal -->
+	<div class="modal fade" id="temperatureModalDiv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="temperatureModal">Weather</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body temp"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">
+						Close
+					</button>
+					<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <!-- News Modal -->
-    <div
-      class="modal fade"
-      id="newsModalDiv"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="newsModal">News</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body news">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-          </div>
-        </div>
-      </div>
-    </div>
+	<!-- News Modal -->
+	<div class="modal fade" id="newsModalDiv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="newsModal">News</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body news">...</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">
+						Close
+					</button>
+					<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <div>
-      <button id="temperatureModalButton">
-        <img
-          src="assets/images/temperatureModal.png"
-          id="temperatureModal"
-          data-toggle="modal"
-          data-target="#temperatureModalDiv"
-        />
-      </button>
-    </div>
+	<div id="backgroundImage">
+		<img src="assets/images/backgroundImage.png" alt="">
+	</div>
 
-    <div>
-      <button id="newsModalButton">
-        <img
-          src="assets/images/newsModal.png"
-          id="newsModal"
-          data-toggle="modal"
-          data-target="#newsModalDiv"
-        />
-      </button>
-    </div>
-  </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
-  <script src="assets/javascript/app.js"></script>
+	<div id="footer" class="footer-copyright text-center py-3"> 2019. All rights reserved
+	</div>
+
+	<div>
+		<button id="temperatureModalButton">
+			<img src="assets/images/temperatureModal.png" id="temperatureModal" data-toggle="modal"
+				data-target="#temperatureModalDiv" />
+		</button>
+	</div>
+
+	<div>
+		<button id="newsModalButton">
+			<img src="assets/images/newsModal.png" id="newsModal" data-toggle="modal" data-target="#newsModalDiv" />
+		</button>
+	</div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+<script src="assets/javascript/app.js"></script>
+
 </html>
