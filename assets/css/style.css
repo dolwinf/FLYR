@@ -40,6 +40,13 @@ body {
   background-color: #0091ff;
 }
 
+.img-fluid {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 #temperatureModalButton {
   position: fixed;
   bottom: 0px;
