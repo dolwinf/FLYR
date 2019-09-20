@@ -31,7 +31,7 @@ $("#search").on("click", function(e) {
   to = $("#to").val();
   tempModal.css("display", "block");
   newsModal.css("display", "block");
-  // weather(to);
+  weather(to);
   currentNews(to);
 
   placeOfInterest(to);
@@ -119,27 +119,46 @@ function kiwi(from, to) {
               fare = item.conversion.AUD;
 
               flightContainer +=
-                "<p>" +
-                path.cityFrom +
-                "&nbsp; : &nbsp;" +
+                //start row div
+                "<div class='row capitalize'>" +
+                //first column
+                "<div class='col-md-2 flightHeader'>" + //flight carrier data
+                "</div>" +
+                //second column
+                "<div class='col-md-2'>" +
+                "<div>" +
                 depatureTime +
-                "&nbsp;" +
-                "&nbsp;&nbsp;&nbsp;&nbsp; -> &nbsp;&nbsp;&nbsp;&nbsp;" +
-                "&nbsp;" +
+                "</div><div>" +
+                path.cityFrom +
+                "</div>" +
+                "</div>" +
+                //third column
+                "<div class='col-md-2'>" +
+                "<div>" +
+                arrivalTime +
+                "</div><div>" +
                 path.cityTo +
-                "&nbsp; : &nbsp;" +
-                arrivalTime;
+                "</div>" +
+                "</div>";
+              //fourth column
             });
             flightContainer +=
-              "<br><br> Flight duration: &nbsp;" +
+              "<div class='col-md-2 '>" +
               totalTime +
-              "&nbsp;" +
-              "&nbsp;" +
-              "AUD &nbsp;" +
+              "</div>" +
+              //fifth column
+              "<div class='col-md-2'><div>&nbsp;&nbsp;&nbsp;$" +
               fare +
-              "&nbsp;<a href='" +
+              "</div>" +
+              //sixth column
+              "<div class='col-md-2'>" +
+              "<a class='btn btn-primary' href=" +
               item.deep_link +
-              "' style='margin-left: 2%' class='btn btn-primary'>Book Flight </a></p>";
+              ">Book</a> " +
+              "</div>" +
+              //closing row div
+              "</div>";
+
             codeIataAirline(airlineCode, flightContainer);
           }
         });
@@ -149,7 +168,7 @@ function kiwi(from, to) {
       console.log(err);
     });
 }
-
+//removed the 2nd arugument from here
 function codeIataAirline(code, currentFlightContainer) {
   $.ajax({
     url:
@@ -160,8 +179,9 @@ function codeIataAirline(code, currentFlightContainer) {
     var data = JSON.parse(response);
     console.log(data[0].nameAirline);
 
-    currentFlightContainer += "<p>" + data[0].nameAirline + "</p></li>";
+    // currentFlightContainer += "<p>" + data[0].nameAirline + "</p></li>";
     $(".flight").append(currentFlightContainer);
+    $(".flightHeader").text(data[0].nameAirline);
 
     main.css("display", "block");
     background.hide();
