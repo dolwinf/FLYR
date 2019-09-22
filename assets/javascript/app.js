@@ -1,6 +1,9 @@
 //Aviation Edge api
 //234b97-f4a134
 
+//new AE api
+//c3466e-7c96d1
+
 //Google maps platform api
 // AIzaSyDFnMLHhIPMyVaVj-tWEU4H15JCryMYtos
 
@@ -11,32 +14,18 @@ var dateTo;
 var dateFromConverted;
 var dateToConverted;
 var airlineCode;
-var clearFlight = $("#actitivitesDivBodyPadding");
-var clearActivities = $("#flightDivBodyPadding");
-var background = $("#backgroundImage");
-var tempModal = $("#temperatureModalButton");
-var newsModal = $("#newsModalButton");
-var main = $(".main");
-var flight = $(".flight");
-var activity = $(".activity");
-var news = $(".news");
-var destinationActivities = $(".destinationActivities");
-var destinationCurrentAffairs = $(".destinationCurrentAffairs");
 
 $("#search").on("click", function(e) {
 	e.preventDefault();
-	flight.empty();
-	activity.empty();
+
 	from = $("#from").val();
 	to = $("#to").val();
-	tempModal.css("display", "block");
-	newsModal.css("display", "block");
-	weather(to);
-	currentNews(to);
 
-	placeOfInterest(to);
-	destinationActivities.append("<span> in " + to + "</span>");
-	destinationCurrentAffairs.append("<span> in " + to + "</span>");
+	// weather(to);
+	// currentNews(to);
+
+	// placeOfInterest(to);
+
 	dateFrom = $("#start").val();
 	dateTo = $("#end").val();
 	dateFromConverted = moment(dateFrom).format("DD/MM/YYYY");
@@ -48,13 +37,14 @@ $("#search").on("click", function(e) {
 function travelFrom(code) {
 	var settings = {
 		url:
-			"https://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
+			"https://aviation-edge.com/v2/public/autocomplete?key=c3466e-7c96d1&city=" +
 			code,
 		method: "GET"
 	};
 
 	$.ajax(settings).then(function(response) {
 		var fromValue = JSON.parse(response);
+		console.log(fromValue);
 		from = fromValue.cities[0].codeIataCity;
 		console.log(from);
 		travelTo(to);
@@ -64,7 +54,7 @@ function travelFrom(code) {
 function travelTo(code) {
 	var settings = {
 		url:
-			"https://aviation-edge.com/v2/public/autocomplete?key=234b97-f4a134&city=" +
+			"https://aviation-edge.com/v2/public/autocomplete?key=c3466e-7c96d1&city=" +
 			code,
 		method: "GET"
 	};
@@ -147,7 +137,7 @@ function kiwi(from, to) {
 function codeIataAirline(code) {
 	$.ajax({
 		url:
-			"https://aviation-edge.com/v2/public/airlineDatabase?key=234b97-f4a134&connections=2&codeIataAirline=" +
+			"https://aviation-edge.com/v2/public/airlineDatabase?key=c3466e-7c96d1&connections=2&codeIataAirline=" +
 			code,
 		method: "GET"
 	}).then(function(response) {
@@ -220,3 +210,58 @@ function currentNews(place) {
 		});
 	});
 }
+
+var citiesReturned = [];
+
+$("#from").on("keyup", function(e) {
+	var value = e.target.value;
+	if (value.length > 2) {
+		$.ajax({
+			url:
+				"http://aviation-edge.com/api/public/autocomplete?key=c3466e-7c96d1&query=" +
+				value,
+			// `https://api.skypicker.com/locations?term=${value}&locale=en-US&location_types=airport&location_types=city&limit=10&active_only=true`,
+			method: "GET"
+		}).then(function(response) {
+			var data = JSON.parse(response);
+			console.log(data);
+			// response.locations.forEach(function(item) {
+			// 	if (!citiesReturned.includes(item.name)) citiesReturned.push(item.name);
+			// 	console.log(citiesReturned);
+			// });
+		});
+	}
+});
+
+$("#to").on("keyup", function(e) {
+	var value = e.target.value;
+	if (value.length > 2) {
+		$.ajax({
+			url:
+				"http://aviation-edge.com/api/public/autocomplete?key=c3466e-7c96d1&query=" +
+				value,
+			// `https://api.skypicker.com/locations?term=${value}&locale=en-US&location_types=airport&location_types=city&limit=10&active_only=true`,
+			method: "GET"
+		}).then(function(response) {
+			console.log(response);
+			// var data = JSON.parse(response);
+			// console.log(data);
+			// response.locations.forEach(function(item) {
+			// 	if (!citiesReturned.includes(item.name)) citiesReturned.push(item.name);
+			// console.log(citiesReturned);
+			// });
+		});
+	}
+});
+
+$(function() {
+	$("#from").autocomplete({
+		source: citiesReturned
+	});
+});
+
+$(function() {
+	$("#to").autocomplete({
+		source: citiesReturned
+	});
+});

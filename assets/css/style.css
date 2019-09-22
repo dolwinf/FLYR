@@ -1,187 +1,28 @@
-#jumbotron {
-  background-color: #ffc92e;
+/* .input .ui-menu-item {
+	font-style: italic;
+	color: blue;
+} */
+
+.ui-menu .ui-menu {
+	margin-top: -3px;
 }
-
-body {
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  width: 100%;
+.ui-menu .ui-menu-item {
+	margin: 0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
 }
-
-#logo {
-  height: 150px;
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+	display: block;
+	padding: 0.2em 0.4em;
+	line-height: 1.5;
+	zoom: 1;
 }
-
-#search {
-  background-color: #1000ff;
-}
-
-.form-inline {
-  display: block;
-}
-
-#from,
-#to,
-#start,
-#end {
-  width: auto;
-  margin-right: 2px;
-}
-
-#from,
-#to,
-#start,
-#end {
-  width: auto;
-  margin-right: 2px;
-}
-
-#search:hover {
-  background-color: #0091ff;
-}
-
-.img-fluid {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#temperatureModalButton {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-  z-index: 5;
-  background-color: transparent;
-  border: none;
-}
-
-#newsModalButton {
-  position: fixed;
-  bottom: 0px;
-  right: 50px;
-  z-index: 5;
-  background-color: transparent;
-  border: none;
-}
-
-.capitalize {
-  text-transform: capitalize;
-}
-
-#flightIcon,
-#activitiesIcon,
-#newsIcon {
-  width: 50px;
-}
-
-#wrapper {
-  padding: 20px;
-  color: white;
-}
-
-#from::placeholder,
-#to::placeholder,
-#start::placeholder,
-#end::placeholder,
-#search::placeholder {
-  text-transform: uppercase;
-}
-
-.list-group-item {
-  color: black;
-  text-align: left;
-  height: auto;
-  text-transform: lowercase;
-}
-
-#flightsDiv,
-#activitiesDiv {
-  margin-bottom: 10px;
-}
-
-#flightsDivHeader,
-#activitiesDivHeader {
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 2;
-  border-bottom: solid 3px white;
-  background-color: #1000ff;
-  overflow: hidden;
-}
-
-#flightDivBodyPadding,
-#actitivitesDivBodyPadding {
-  padding: 20px;
-  background-color: #0091ff;
-}
-
-#flightsDivBody,
-#activitiesDivBody {
-  overflow: auto;
-  z-index: 1;
-  height: 450px;
-  background-color: #0091ff;
-  width: 100%;
-}
-
-#footer {
-  background-color: #1000ff;
-  color: white;
-}
-
-/* media queries */
-
-@media (max-width: 575.98px) {
-  #flightsDivBody {
-    overflow: none;
-  }
-  #activitiesDivBody {
-    overflow: none;
-  }
-  #from,
-  #to,
-  #start,
-  #end,
-  #search {
-    width: 100%;
-  }
-  #flightsDivHeader {
-    position: sticky;
-    top: 0;
-  }
-  #activitiesDivHeader {
-    position: sticky;
-    top: 0;
-  }
-}
-
-/* @media (min-width: 576px) and (max-width: 767.98px) {} */
-
-@media (max-width: 991.98px) {
-  #searchBar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  #wrapper {
-    padding: 0px;
-  }
-  #flightsDivHeader {
-    position: sticky;
-    top: 0;
-  }
-  #activitiesDivHeader {
-    position: sticky;
-    top: 0;
-  }
-  .form-inline {
-    display: flex;
-    padding: 25px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
-
-@media (min-width: 1200px) {
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
 }
